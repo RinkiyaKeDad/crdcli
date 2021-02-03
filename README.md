@@ -1,6 +1,6 @@
 # CRD CLI
 
-Creating a baisc CLI to produce policy report resources based on CIS Benchmarks.
+Creating a CLI to produce policy report resources based on CIS Benchmarks.
 
 ## Getting Started
 
@@ -31,3 +31,5 @@ kubectl create -f actual-resource.yaml
 kubectl get policyreports
 
 ```
+
+> Currently the data is not imported from JSON and is hardcoded.
