@@ -17,7 +17,7 @@ type repo struct {
 	Metadata   struct {
 		Name   string `yaml:"name"`
 		Labels struct {
-			PolicyKubernetesIoEngine string `yaml:"policy.kubernetes.io/engine"`
+			Wgpolicyk8SIoEngine string `yaml:"wgpolicyk8s.io/engine"`
 		} `yaml:"labels"`
 		Annotations struct {
 			Name     string `yaml:"name"`
