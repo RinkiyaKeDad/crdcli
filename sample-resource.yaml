@@ -1,0 +1,17 @@
+apiVersion: policy.kubernetes.io/v1alpha1
+kind: PolicyReport
+metadata:
+  name: sample-cis-bench-api-server
+  labels:
+    policy.kubernetes.io/engine: kube-cis
+  annotations:
+    name: CIS Kubernetes Benchmarks
+    category: API Server
+    version: v1.5.1 - 02-14-2020
+summary:
+  pass: -1
+  fail: -1
+  warn: -1
+  info: -1
+  error: -1
+  skip: -1
