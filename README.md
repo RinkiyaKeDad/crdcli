@@ -5,6 +5,12 @@ Creating a CLI to produce policy report resources based on CIS Benchmarks.
 ## Getting Started
 
 1. Clone the repo.
+2. Navigate to the project directory and run
+
+```
+./kube-bench --json > logs.json
+```
+
 2. Add the CRDs to your cluster:
 
 ```
@@ -12,7 +18,7 @@ kubectl create -f https://github.com/kubernetes-sigs/wg-policy-prototypes/raw/ma
 
 ```
 
-3. Edit the values in the `results.json` file. Run the following command in the project directory to generate your policy report resource yaml file.
+3. Run the following command in the project directory to generate your policy report resource yaml file.
 
 ```
 go run main.go produce
@@ -32,4 +38,4 @@ kubectl get policyreports
 
 ```
 
-> Currently the data is not imported from JSON and is hardcoded.
+> Currently only result summary is being edited and rest is mock data.

@@ -13,5 +13,3 @@ summary:
   fail: -1
   warn: -1
   info: -1
-  error: -1
-  skip: -1

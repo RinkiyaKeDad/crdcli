@@ -14,12 +14,10 @@ import (
 
 type Results struct {
 	Totals struct {
-		TotalPass  int `json:"total_pass"`
-		TotalFail  int `json:"total_fail"`
-		TotalWarn  int `json:"total_warn"`
-		TotalInfo  int `json:"total_info"`
-		TotalError int `json:"total_error"`
-		TotalSkip  int `json:"total_skip"`
+		TotalPass int `json:"total_pass"`
+		TotalFail int `json:"total_fail"`
+		TotalWarn int `json:"total_warn"`
+		TotalInfo int `json:"total_info"`
 	} `json:"Totals"`
 }
 
@@ -76,7 +74,7 @@ to quickly create a Cobra application.`,
 		fmt.Println(C)
 
 		fmt.Println("JSON starts here: ")
-		config := LoadResults("./results.json")
+		config := LoadResults("./logs.json")
 		fmt.Println(config)
 
 		// Change value in map and marshal back into yaml
@@ -84,8 +82,6 @@ to quickly create a Cobra application.`,
 		C.Summary.Fail = config.Totals.TotalFail
 		C.Summary.Warn = config.Totals.TotalWarn
 		C.Summary.Info = config.Totals.TotalInfo
-		C.Summary.Error = config.Totals.TotalError
-		C.Summary.Skip = config.Totals.TotalSkip
 
 		fmt.Println(C)
 
