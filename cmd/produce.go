@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -10,6 +11,17 @@ import (
 	"github.com/spf13/viper"
 	"gopkg.in/yaml.v2"
 )
+
+type Results struct {
+	Totals struct {
+		TotalPass  int `json:"total_pass"`
+		TotalFail  int `json:"total_fail"`
+		TotalWarn  int `json:"total_warn"`
+		TotalInfo  int `json:"total_info"`
+		TotalError int `json:"total_error"`
+		TotalSkip  int `json:"total_skip"`
+	} `json:"Totals"`
+}
 
 type repo struct {
 	APIVersion string `yaml:"apiVersion"`
@@ -63,13 +75,17 @@ to quickly create a Cobra application.`,
 
 		fmt.Println(C)
 
+		fmt.Println("JSON starts here: ")
+		config := LoadResults("./results.json")
+		fmt.Println(config)
+
 		// Change value in map and marshal back into yaml
-		C.Summary.Pass = 6
-		C.Summary.Fail = 5
-		C.Summary.Warn = 4
-		C.Summary.Info = 3
-		C.Summary.Error = 2
-		C.Summary.Skip = 1
+		C.Summary.Pass = config.Totals.TotalPass
+		C.Summary.Fail = config.Totals.TotalFail
+		C.Summary.Warn = config.Totals.TotalWarn
+		C.Summary.Info = config.Totals.TotalInfo
+		C.Summary.Error = config.Totals.TotalError
+		C.Summary.Skip = config.Totals.TotalSkip
 
 		fmt.Println(C)
 
@@ -103,6 +119,15 @@ func currentdir() (cwd string) {
 	}
 
 	return cwd
+}
+
+func LoadResults(filename string) Results {
+	var results Results
+	resultsFile, _ := os.Open(filename)
+	defer resultsFile.Close()
+	jsonParser := json.NewDecoder(resultsFile)
+	jsonParser.Decode(&results)
+	return results
 }
 
 func init() {

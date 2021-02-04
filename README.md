@@ -12,7 +12,7 @@ kubectl create -f https://github.com/kubernetes-sigs/wg-policy-prototypes/raw/ma
 
 ```
 
-3. Run the following command in the project directory to generate your policy report resource yaml file.
+3. Edit the values in the `results.json` file. Run the following command in the project directory to generate your policy report resource yaml file.
 
 ```
 go run main.go produce
