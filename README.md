@@ -4,7 +4,7 @@ Creating a CLI to produce policy report resources based on CIS Benchmarks.
 
 ## Demo
 
-![CRD CLI in action](./static/crdcli-demo.mp4)
+[See On Google Drive: CRD CLI In Action](https://drive.google.com/file/d/1HLusazPybyfTSGKT2h2td5fQXbrJtL9p/view)
 
 ## Getting Started
 
