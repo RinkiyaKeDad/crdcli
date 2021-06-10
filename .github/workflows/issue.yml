@@ -10,6 +10,6 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           ignore-comments: true
-          labels-synonyms: '{"bug":["error","need fix","not working"],"enhancement":["upgrade"],"question":["help"]},"custom":["trigger1","trigger2"]'
+          labels-synonyms: '{"bug":["error","need fix","not working"],"enhancement":["upgrade"],"question":["help"],"custom":["trigger1","trigger2"]}'
           # labels-not-allowed: '["good first issue"]'
           default-labels: '["help wanted"]'
