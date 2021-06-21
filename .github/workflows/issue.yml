@@ -1,15 +1,18 @@
-name: Labeling new issue
-on:
+name: Bot
+on: 
   issues:
-    types: ['opened','edited']
+    types: [opened, edited]
+  pull_request_target:
+    types: [opened]
+
 jobs:
-  build:
+
+  labeler:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: Renato66/auto-label@v2
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          ignore-comments: true
-          labels-synonyms: '{"bug":["error","need fix","not working"],"enhancement":["upgrade"],"question":["help"],"custom":["trigger1","trigger2"]}'
-          # labels-not-allowed: '["good first issue"]'
-          default-labels: '["help wanted"]'
+    - name: Check Labels
+      id: labeler
+      uses: jimschubert/labeler-action@v2
+      with:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
