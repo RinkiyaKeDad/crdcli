@@ -28,7 +28,7 @@ comments:
 labels:
   'bug':
     include:
-      - '\bbug[s]?\b'
+      - '\b\/bug\b'
     exclude: []
   'help wanted':
     include:
