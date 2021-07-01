@@ -30,7 +30,6 @@ labels:
   'bug':
     include:
       - '\blabel-bug\b'
-      - '\bbug[s]?\b'
     exclude: []
   'do not merge':
     include:
